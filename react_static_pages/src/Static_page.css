@@ -1,0 +1,45 @@
+nav > a > img {
+    width: 80px;
+    margin-right: 7px;
+}
+header {
+    height: 40px;
+    background-color: #5FA8D3;
+    padding: 30px 25px;
+}
+nav{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+nav > span {
+    color: #1B4965;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+main{
+    color: #CAE9FF;
+    padding: 60px ;
+    background-image: url(assets/images/reactjs-icon\ 2.png);
+    background-repeat: no-repeat;
+    background-position: right 65%;
+
+    
+}
+main h1{
+    margin: 0%;
+    font-size: 2.4rem;
+}
+.facts-list{
+    margin-top: 46px;
+    max-width: 600px;
+}
+
+.facts-list > li{
+    padding-block: 10px;
+    line-height: 19px;
+}
+.facts-list>li::marker{
+    color: #43bcfd;
+    font-size: 1.5rem;
+}
