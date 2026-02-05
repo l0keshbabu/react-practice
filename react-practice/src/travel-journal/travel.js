@@ -1,7 +1,8 @@
 import globe from "../assets/images/travel-journal/Globe.png"
 import "./travel.css"
 
-// -------------------------travel journal components start--------------------------
+// -------------------------travel journal components start------------------------
+
 function Header(){
     return(
         <header>
