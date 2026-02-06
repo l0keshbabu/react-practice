@@ -6,7 +6,7 @@ import "./travel.css"
 function Header(){
     return(
         <header>
-            <img src={globe} alt="globe logo"></img>
+            <a href="https://www.google.com/maps"><img src={globe} alt="globe logo"></img></a>
             <h1>my travel journal.</h1>
         </header>
     )

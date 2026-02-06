@@ -10,12 +10,15 @@ header{
     align-items: center;
     
 }
-header > img{
+header > a > img{
     width: 30px;
     margin-right: 10px;
+    margin-top: 3px;
+
 }
 header > h1{
     font-size: 1.3rem;
     font-weight: 500;
     font-family: "Inter";
+    color: #ACC8A2 ;
 }
