@@ -1,3 +1,97 @@
+# React Practice (Scrimba Course)
+
+This repository contains my **React practice work** while learning React through the **Scrimba React course**.
+
+I follow each Scrimba lesson (scrim) and **practice the concepts independently** by building and styling components on my own.  
+The goal of this repository is to **strengthen React fundamentals**, understand best practices, and track my learning progress over time.
+
+---
+
+## 📚 What I’m Doing
+
+- Learning React step by step using the Scrimba React course
+- Practicing every scrim by implementing it in code
+- Refactoring code to follow clean structure and best practices
+- Using Git commits to track learning milestones
+
+---
+
+## 🧩 Practice Modules Included
+
+### ✅ Static Page
+- Built a static React page using functional components
+- Practiced JSX, component structure, assets handling, and CSS styling
+- Focused on layout, styling, and clean folder organization
+
+### 🔄 Travel Journal (In Progress)
+- Building a travel journal UI inspired by the Scrimba module
+- Currently working on layout and styling
+- Will refactor into reusable components using props and data mapping
+
+---
+
+## 🛠️ Technologies Used
+
+- React (Create React App)
+- JavaScript (ES6+)
+- HTML5
+- CSS3
+- Git & GitHub
+
+---
+
+## 📁 Project Structure
+
+``` 
+src/
+├── static_page/
+│ ├── StaticPage.js
+│ └── StaticPage.css
+│
+├── travel_journal/
+│ ├── TravelJournal.js
+│ ├── TravelCard.js
+│ └── data.js
+│
+├── App.js
+├── index.js
+└── index.css 
+```
+
+
+---
+
+## 🎯 Learning Objective
+
+This repository is meant for **learning and practice**, not production use.
+
+As I progress through the course, I will:
+- Add new modules
+- Improve code structure
+- Refactor components
+- Apply React concepts like props, state, and list rendering
+
+---
+
+## ▶️ How to Run
+
+npm install
+npm start
+
+The app runs locally at:
+http://localhost:3000
+
+---
+
+## Note:
+This repository will continue to evolve as I learn more React concepts and build more practice modules.
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
