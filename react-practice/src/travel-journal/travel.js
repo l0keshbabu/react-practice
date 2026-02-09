@@ -1,8 +1,6 @@
 import globe from "../assets/images/travel-journal/Globe.png"
 import marker from "../assets/images/travel-journal/marker.png"
-import shiridi from "../assets/images/travel-journal/shiridi.png"
-import golconda from "../assets/images/travel-journal/golconda.png"
-import konda from "../assets/images/travel-journal/kondapalli.png"
+
 import "./travel.css"
 
 // -------------------------travel journal components start------------------------
