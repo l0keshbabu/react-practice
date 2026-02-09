@@ -40,6 +40,7 @@ export default function Traveljournal(){
     const travelelements=data.map((entry) => {
         return (
             <Entry
+                key={entry.id}
                 image={entry.image}
                 title={entry.title}
                 country={entry.country}
