@@ -19,17 +19,17 @@ function Entry(props){
     return (
         <div className="travel-entry">
             <div className="main-image-container">
-            <img src={props.image.src} alt={props.image.alt} className="main-image"></img>
+            <img src={props.entry.image.src} alt={props.entry.image.alt} className="main-image"></img>
             </div>
             <div className="info-container">
                 <img src={marker} alt="location pin" className="marker"></img>
                 <span className="country">{props.country}</span>
-                <a href={props.googlemapslink}>View on Google Maps
+                <a href={props.entry.googlemapslink}>View on Google Maps
 
                 </a>
-                <h2 className="entry-title">{props.title}</h2>
-                <p className="trip-dates">{props.dates}</p>
-                <p className="entry-text">{props.text}</p>
+                <h2 className="entry-title">{props.entry.title}</h2>
+                <p className="trip-dates">{props.entry.dates}</p>
+                <p className="entry-text">{props.entry.text}</p>
             </div>
         </div>
     )
@@ -41,12 +41,7 @@ export default function Traveljournal(){
         return (
             <Entry
                 key={entry.id}
-                image={entry.image}
-                title={entry.title}
-                country={entry.country}
-                googlemapslink={entry.googlemapslink}
-                dates={entry.dates}
-                text={entry.text}
+                entry={entry}
             />
         )
     })
