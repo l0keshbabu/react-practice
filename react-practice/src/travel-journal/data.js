@@ -1,7 +1,7 @@
 import shiridi from "../assets/images/travel-journal/shiridi.png"
 import golconda from "../assets/images/travel-journal/golconda.png"
 import konda from "../assets/images/travel-journal/kondapalli.png"
-export default[
+const data=[
     {
             id:1,
             image:{
@@ -48,5 +48,7 @@ export default[
             dates:"14 July, 2025 - 15 July, 2025",
             
             text:"Golconda is a fortified citadel and ruined city located on the westernoutskirts of Hyderabad, Telangana, India.[1][2] The fort was originally built by Kakatiya ruler Pratāparudra in the 11th century out of mud walls.[3] It wasceded to the Bahmani Kings from Musunuri Nayakas during the reign of BahmaniSultan Mohammed Shah I, during the first Bahmani-Vijayanagar War. Following the death of Sultan Mahmood Shah, the Sultanate disintegrated and Sultan Quli,who had been appointed as the Governor of Hyderabad by the Bahmani Kings,fortified the city and made it the capital of the Golconda Sultanate. Because of the vicinity of diamond mines, especially Kollur Mine, Golconda flourished as a trade centre of large diamonds known as Golconda Diamonds." 
-    }
+    },
+    
 ]
+export default data;
