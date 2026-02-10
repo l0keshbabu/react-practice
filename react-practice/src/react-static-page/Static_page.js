@@ -1,4 +1,4 @@
-import logo from "../assets/images/r_logo.png";
+import logo from "../assets/images/staticpage/r_logo.png";
 import "./Static_page.css"
 function Header(){
     return(
