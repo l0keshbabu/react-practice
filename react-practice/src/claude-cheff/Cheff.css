@@ -28,7 +28,7 @@ main {
 
 form {
     display: flex;
-    justify-content: center;
+
     gap: 12px;
     height: 38px;
 }
@@ -57,4 +57,8 @@ form > button::before{
     content: "+";
     margin-right: 5px;
    
+}
+.wrapper{
+    max-width: 400px;
+    margin: 0 auto;
 }

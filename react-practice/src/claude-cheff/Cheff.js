@@ -23,13 +23,15 @@ const MainForm = () => {
     }
     return(
         <main>
-            <form action={SubmitHandler}>
-                <input type="text" placeholder="e.g. Eggs" name="Ingredient"></input>
-                <button>Add Ingredient</button>
-            </form>
-            <ul>
-                {IngredientListItems}
-            </ul>
+            <div className="wrapper">
+                <form action={SubmitHandler}>
+                    <input type="text" placeholder="e.g. Eggs" name="Ingredient"></input>
+                    <button>Add Ingredient</button>
+                </form>
+                <ul>
+                    {IngredientListItems}
+                </ul>
+            </div>
         </main>
     )
 }
