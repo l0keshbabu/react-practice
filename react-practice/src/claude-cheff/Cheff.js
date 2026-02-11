@@ -16,16 +16,14 @@ const MainForm = () => {
     
     const IngredientListItems = ingredients.map(ingredient => (<li key={ingredient}>{ingredient}</li>))
 
-    function SubmitHandler(event){
-        event.preventDefault()
-        const formdata = new FormData(event.currentTarget)
-        const newIngredient = formdata.get("Ingredient")
+    function SubmitHandler(formData){
+        const newIngredient = formData.get("Ingredient")
         setingredients(prevIngredients => [...prevIngredients,newIngredient])
 
     }
     return(
         <main>
-            <form onSubmit={SubmitHandler}>
+            <form action={SubmitHandler}>
                 <input type="text" placeholder="e.g. Eggs" name="Ingredient"></input>
                 <button>Add Ingredient</button>
             </form>
