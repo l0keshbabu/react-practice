@@ -1,5 +1,6 @@
 import "./Cheff.css"
 import chefimg from "../assets/images/cheff/chef1.png" 
+import React from "react"
 //==========================Cheff components start==========================
 const Header = () => {
     return(
@@ -10,12 +11,27 @@ const Header = () => {
     )
 } 
 const MainForm = () => {
+
+    const [ingredients,setingredients] = React.useState([])
+    
+    const IngredientListItems = ingredients.map(ingredient => (<li key={ingredient}>{ingredient}</li>))
+
+    function SubmitHandler(event){
+        event.preventDefault()
+        const formdata = new FormData(event.currentTarget)
+        const newIngredient = formdata.get("Ingredient")
+        setingredients(prevIngredients => [...prevIngredients,newIngredient])
+
+    }
     return(
         <main>
-            <form>
-                <input type="text" placeholder="e.g. Eggs"></input>
+            <form onSubmit={SubmitHandler}>
+                <input type="text" placeholder="e.g. Eggs" name="Ingredient"></input>
                 <button>Add Ingredient</button>
             </form>
+            <ul>
+                {IngredientListItems}
+            </ul>
         </main>
     )
 }
@@ -28,3 +44,5 @@ export default function ChefClaude(){
         </div>
     )
 }
+// so this chefClaude function is expoting to app.js in the src forder from there its going to index.js 
+// and from there its imported to index.html.this is waht it compi;ed in the web 
