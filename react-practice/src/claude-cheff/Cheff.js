@@ -23,15 +23,21 @@ const MainForm = () => {
     }
     return(
         <main>
-            <div className="wrapper">
                 <form action={SubmitHandler}>
                     <input type="text" placeholder="e.g. Eggs" name="Ingredient"></input>
                     <button>Add Ingredient</button>
                 </form>
-                <ul>
-                    {IngredientListItems}
-                </ul>
-            </div>
+                <section>
+                <h2>Ingredients on hand:</h2>
+                <ul className="ingredients-list" aria-live="polite">{IngredientListItems}</ul>
+                <div className="get-recipe-container">
+                    <div>
+                        <h3>Ready for a recipe?</h3>
+                        <p>Generate a recipe from your list of ingredients.</p>
+                    </div>
+                    <button>Get a recipe</button>
+                </div>
+            </section>
         </main>
     )
 }
