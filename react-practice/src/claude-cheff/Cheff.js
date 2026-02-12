@@ -27,7 +27,7 @@ const MainForm = () => {
                     <input type="text" placeholder="e.g. Eggs" name="Ingredient"></input>
                     <button>Add Ingredient</button>
                 </form>
-                <section>
+                {ingredients.length > 0 && <section>
                 <h2>Ingredients on hand:</h2>
                 <ul className="ingredients-list" aria-live="polite">{IngredientListItems}</ul>
                 <div className="get-recipe-container">
@@ -37,7 +37,7 @@ const MainForm = () => {
                     </div>
                     <button>Get a recipe</button>
                 </div>
-            </section>
+            </section>}
         </main>
     )
 }
