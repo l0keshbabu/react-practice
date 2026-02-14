@@ -3,6 +3,7 @@ import chefimg from "../assets/images/cheff/chef1.png"
 import React from "react"
 import ClaudeRecipe from "./ClaudeRecipe"
 import IngredientsList from "./IngredientsList"
+import {getRecipeFromMistral} from "./ai"
 //==========================Cheff components start==========================
 const Header = () => {
     return(
@@ -15,7 +16,7 @@ const Header = () => {
 const MainForm = () => {
 
     const [ingredients,setingredients] = React.useState([])
-    const [recipeshown,setrecipeshown] = React.useState(false)
+    const [recipe,setrecipe] = React.useState("")
     
     
 
@@ -23,8 +24,9 @@ const MainForm = () => {
         const newIngredient = formData.get("Ingredient")
         setingredients(prevIngredients => [...prevIngredients,newIngredient])
     }
-     function ToggleIsShown(){
-        setrecipeshown(prevShown => !prevShown)
+    async function getRecipe(){
+        const recipeMarkdown = await getRecipeFromMistral(ingredients)
+        setrecipe(recipeMarkdown)
     } 
     return(
         <main>
@@ -32,8 +34,8 @@ const MainForm = () => {
                     <input type="text" placeholder="e.g. Eggs" name="Ingredient"></input>
                     <button>Add Ingredient</button>
                 </form>
-                {ingredients.length > 0 && <IngredientsList ingredients={ingredients} ToggleIsShown={ToggleIsShown}/>}
-            {recipeshown && <ClaudeRecipe/>}
+                {ingredients.length > 0 && <IngredientsList ingredients={ingredients} getRecipe={getRecipe}/>}
+            {recipe && <ClaudeRecipe recipe={recipe}/>}
         </main>
     )
 }
