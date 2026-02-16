@@ -1,5 +1,10 @@
-import { InferenceClient } from '@huggingface/inference'
+import Groq from "groq-sdk"
 
+
+const groq = new Groq({
+    apiKey: process.env.REACT_APP_GROQ_API_KEY,
+    dangerouslyAllowBrowser: true
+})
 const SYSTEM_PROMPT = `
 You are an assistant that receives a list of ingredients that a user has and suggests a recipe 
 they could make with some or all of those ingredients. You don't need to use every ingredient they
@@ -8,22 +13,18 @@ mention in your recipe. The recipe can include additional ingredients they didn'
    render to a web page
 `
 
-
-const client = new InferenceClient(process.env.REACT_APP_HF_API_KEY)
-
-export async function getRecipeFromMistral(ingredientsArr) {
+export async function getRecipeFromGroq(ingredientsArr) {
     const ingredientsString = ingredientsArr.join(", ")
     try {
-        const response = await client.chatCompletion({
-            model: "mistralai/Mistral-7B-Instruct-v0.2",
+        const response = await groq.chat.completions.create({
+            model: "llama-3.1-8b-instant",
             messages: [
                 { role: "system", content: SYSTEM_PROMPT },
                 { role: "user", content: `I have ${ingredientsString}. Please give me a recipe you'd recommend I make!` },
             ],
-            max_tokens: 1024,
         })
         return response.choices[0].message.content
     } catch (err) {
-        console.error(err.message)
-    }
+    console.error("Groq error:", err)
+}
 }

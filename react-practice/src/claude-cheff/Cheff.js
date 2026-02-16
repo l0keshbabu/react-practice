@@ -3,7 +3,7 @@ import chefimg from "../assets/images/cheff/chef1.png"
 import React from "react"
 import ClaudeRecipe from "./ClaudeRecipe"
 import IngredientsList from "./IngredientsList"
-import {getRecipeFromMistral} from "./ai"
+import {getRecipeFromGroq} from "./ai"
 //==========================Cheff components start==========================
 const Header = () => {
     return(
@@ -25,7 +25,7 @@ const MainForm = () => {
         setingredients(prevIngredients => [...prevIngredients,newIngredient])
     }
     async function getRecipe(){
-        const recipeMarkdown = await getRecipeFromMistral(ingredients)
+        const recipeMarkdown = await getRecipeFromGroq(ingredients)
         setrecipe(recipeMarkdown)
     } 
     return(
