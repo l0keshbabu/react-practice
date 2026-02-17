@@ -7,6 +7,7 @@ body {
     font-family: Inter, sans-serif;
 }
 header{
+    font-family: "Borel", cursive;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,6 +20,7 @@ header > img{
     width: 50px;
 }
 header > h1{
+    padding-top: 30px;
     font-weight: 400;
     margin: 0px;
 }
@@ -106,9 +108,13 @@ ul.ingredients-list > li {
 }
 .suggested-recipe-container {
     color: #475467;
+    padding: 15px 25px;
+    margin-top: 30px;
+    border-radius: 6px;
     line-height: 28px;
     font-size: 1.125rem;
     font-weight: 400;
+    background-color: #e5e7ea;
 }
 
 .suggested-recipe-container ul li, .suggested-recipe-container ol li {
