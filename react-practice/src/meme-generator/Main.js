@@ -1,6 +1,12 @@
 import meme1 from "../assets/images/Meme/meme1.png"
 import "./Memes.css"
+import { useState } from "react"
 export default function Main(){
+    const [meme,setMeme]=useState({
+        topText:"Shut Up",
+        bottomText:"and take my money",
+        imageURL:meme1
+    })
     return(
         <main>
             <div className="form">
@@ -13,9 +19,9 @@ export default function Main(){
                 <button>Get a new meme image 🖼</button>
             </div>
             <div className="meme">
-                <img src={meme1} alt="memeImage" />
-                <span className="top">Shut Up</span>
-                <span className="bottom">and take my money</span>
+                <img src={meme.imageURL} alt="memeImage" />
+                <span className="top">{meme.topText}</span>
+                <span className="bottom">{meme.bottomText}</span>
             </div>
         </main>
     ) 
