@@ -5,7 +5,7 @@ export default function MemeGenerator(){
     return(
         <div>
             <Header/>
-
+            <Main/>
         </div>
     )
 }
