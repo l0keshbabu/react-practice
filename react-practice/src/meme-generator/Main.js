@@ -7,14 +7,21 @@ export default function Main(){
         bottomText:"and take my money",
         imageURL:meme1
     })
-
+    const [allMemes, setAllMemes] = useState([])
 
     useEffect(() => {
         fetch("https://api.imgflip.com/get_memes")
         .then(res => res.json())
-        .then(data => console.log(data.data.memes))
+        .then(data => setAllMemes(data.data.memes))
 
     },[])
+        function getMemeImage(){
+            const randNum=Math.floor(Math.random() * allMemes.length)
+            const randImg=allMemes[randNum].url
+            setMeme(prev => ({
+                ...prev,imageURL:randImg
+            }))
+        }
 
         function handleChange(event){
         const {value,name}=event.currentTarget
@@ -43,7 +50,7 @@ export default function Main(){
                      value={meme.bottomText}>
                     </input>
                 </label>
-                <button>Get a new meme image 🖼</button>
+                <button onClick={getMemeImage}>Get a new meme image 🖼</button>
             </div>
             <div className="meme">
                 <img src={meme.imageURL} alt="memeImage" />
