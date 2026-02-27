@@ -1,6 +1,6 @@
 export default function Die(props){
     return(
-        <button>{props.num}</button>
+        <button>{props.value}</button>
     )
         
 
