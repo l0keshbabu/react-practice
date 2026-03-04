@@ -5,7 +5,7 @@
 body {
     font-family: Inter, sans-serif;
     margin: 0;
-    background-color: #0B2434;
+    background-color: #252422;
     padding: 20px;
     height: 100vh;
     display: flex;
@@ -22,7 +22,7 @@ div#root {
 }
 
 main {
-    background-color: #F5F5F5;
+    background-color: #EB5E28;
     height: 100%;
     border-radius: 5px;
     display: flex;
@@ -53,8 +53,8 @@ main {
     width: 100px;
     border: none;
     border-radius:6px ;
-    background-color: #5035FF;
-    color: white;
+    background-color: #CCC5B9;
+    color: #252422;
     font-size: 1.2rem;
     font-family: Inter, sans-serif;
     cursor: pointer;
