@@ -7,6 +7,8 @@ import { nanoid } from "nanoid"
 
 export default function App(){ 
 
+    
+
     function generateAllNewDice() {
         return new Array(10)
             .fill(0)
@@ -29,6 +31,8 @@ export default function App(){
                                             value={DieObj.value}
                                             isHeld={DieObj.isHeld}
                                             hold={() => Hold(DieObj.id)}/>)
+
+    const gameWon=dice.every(die => die.isHeld) && dice.every(die => die.value === dice[0].value)                                       
     return(
         <main>
             <h1 className="title">Tenzies</h1>
@@ -36,7 +40,7 @@ export default function App(){
             <div className="dice-container">
                 {diceEle}
             </div>
-            <button className="roll-dice" onClick={rollDice}>Roll</button>
+            <button className="roll-dice" onClick={rollDice}>{gameWon ? "New Game" : "Roll"}</button>
         </main>
     )
 }
