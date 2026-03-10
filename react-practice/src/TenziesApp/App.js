@@ -15,9 +15,14 @@ export default function App(){
             .map(() => ({value:Math.ceil(Math.random() * 6),isHeld:false,id:nanoid()}))
     }
     function rollDice(){
-        setDice(OldDice => 
-            OldDice.map(die =>
-                 die.isHeld ? die : {...die,value:Math.ceil(Math.random() * 6)}))
+        if(!gameWon){
+            setDice(OldDice => 
+                OldDice.map(die =>
+                    die.isHeld ? die : {...die,value:Math.ceil(Math.random() * 6)}))
+        }else{
+            setDice(generateAllNewDice())
+        }
+        
     }
     function Hold(id){
         setDice(oldDice => {
@@ -26,7 +31,7 @@ export default function App(){
             })
         })
     }
-    const [dice,setDice] = useState(generateAllNewDice())
+    const [dice,setDice] = useState(() => generateAllNewDice())
     const diceEle = dice.map(DieObj => <Die key={DieObj.id}
                                             value={DieObj.value}
                                             isHeld={DieObj.isHeld}
