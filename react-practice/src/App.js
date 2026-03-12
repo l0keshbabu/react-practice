@@ -2,8 +2,8 @@
 // import Traveljournal from "./travel-journal/travel";
 // import ChefClaude from "./claude-cheff/Cheff"
 // import MemeGenerator from "./meme-generator/MemeGenerator";
-import Appt from "./TenziesApp/App"
-
+// import Appt from "./TenziesApp/App"
+import Appt from "./assembly-endgame/App";
 
 function App() {
   return (
