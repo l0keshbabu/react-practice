@@ -1,3 +1,4 @@
+import { useState } from "react"
 import "./endgame.css"
 import { languages } from "./languages"
 
@@ -14,6 +15,13 @@ export default function App(){
             <span key={lang.name} className="chip" style={styles}>{lang.name}</span>
         )
     })
+
+    const [currentWord,setCurrentWord]= useState("react")
+    const letterElements=currentWord.split("").map((letter,index) => (
+        <span key={index}>
+            {letter.toUpperCase()}
+        </span>
+    ))
     return (
         <main>
             <header>
@@ -26,6 +34,9 @@ export default function App(){
             </section>
             <section className="language-chips">
                 {languageElements}
+            </section>
+            <section className="word">
+                {letterElements}
             </section>
         </main>
     )
