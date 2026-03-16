@@ -18,14 +18,22 @@ export default function App(){
     })
 
     const [currentWord,setCurrentWord]= useState("react")
+    const [gussedLetters,setGussedLetters] = useState([])
+    console.log(gussedLetters)
     const letterElements=currentWord.split("").map((letter,index) => (
         <span key={index}>
             {letter.toUpperCase()}
         </span>
     ))
     const keyboardElements = alphabets.split("").map(letter => (
-        <button key={letter}>{letter.toUpperCase()}</button>
+        <button key={letter} onClick={()=> addGussedLetters(letter)}>{letter.toUpperCase()}</button>
     ))
+    
+    function addGussedLetters(letter){
+        setGussedLetters(prevLetters => prevLetters.includes(letter)? prevLetters : [...prevLetters,letter])
+    }
+    
+
 
     return (
         <main>
