@@ -4,8 +4,9 @@ import { languages } from "./languages"
 
 
 
-export default function App(){
 
+export default function App(){
+    const alphabets = "abcdefghijklmnopqrstuvwxyz"
     const languageElements = languages.map(lang => {
         const styles={
             backgroundColor:lang.backgroundColor,
@@ -22,6 +23,10 @@ export default function App(){
             {letter.toUpperCase()}
         </span>
     ))
+    const keyboardElements = alphabets.split("").map(letter => (
+        <button key={letter}>{letter.toUpperCase()}</button>
+    ))
+
     return (
         <main>
             <header>
@@ -38,6 +43,10 @@ export default function App(){
             <section className="word">
                 {letterElements}
             </section>
+            <section className="keyboard">
+                {keyboardElements}
+            </section>
+            <button className="new-game">New Game</button>
         </main>
     )
 }
