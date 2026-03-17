@@ -1,6 +1,7 @@
 import { useState } from "react"
 import "./endgame.css"
 import { languages } from "./languages"
+import { clsx } from 'clsx';
 
 
 
@@ -25,9 +26,22 @@ export default function App(){
             {letter.toUpperCase()}
         </span>
     ))
-    const keyboardElements = alphabets.split("").map(letter => (
-        <button key={letter} onClick={()=> addGussedLetters(letter)}>{letter.toUpperCase()}</button>
-    ))
+    const keyboardElements = alphabets.split("").map(letter => {
+        const isGuessed = gussedLetters.includes(letter)
+        const isCorrect = isGuessed && currentWord.includes(letter)
+        const isWrong = isGuessed && !currentWord.includes(letter)
+        const className=clsx({
+            correct: isCorrect,
+            wrong: isWrong
+        })
+        return(<button
+            className={className} 
+            key={letter} 
+            onClick={()=> addGussedLetters(letter)}>
+            {letter.toUpperCase()}
+        </button>)
+    }  
+    )
     
     function addGussedLetters(letter){
         setGussedLetters(prevLetters => prevLetters.includes(letter)? prevLetters : [...prevLetters,letter])
