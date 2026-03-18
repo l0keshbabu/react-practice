@@ -23,7 +23,7 @@ export default function App(){
     console.log(gussedLetters)
     const letterElements=currentWord.split("").map((letter,index) => (
         <span key={index}>
-            {letter.toUpperCase()}
+            {gussedLetters.includes(letter) ? letter.toUpperCase() : ""}
         </span>
     ))
     const keyboardElements = alphabets.split("").map(letter => {
