@@ -7,12 +7,16 @@ import { clsx } from 'clsx';
 
 
 export default function App(){
-
+    // state values
     const [currentWord,setCurrentWord]= useState("react")
     const [gussedLetters,setGussedLetters] = useState([])
-    
+    // derived values
     const wrongGuessCount = gussedLetters.filter(letter => !currentWord.includes(letter)).length
     console.log(wrongGuessCount)
+    const isGameWon = currentWord.split("").every(letter => gussedLetters.includes(letter))
+    const isGameLost = wrongGuessCount >= languages.length - 1
+    const isGameOver = isGameWon || isGameLost
+    // static values
     const alphabets = "abcdefghijklmnopqrstuvwxyz"
     const languageElements = languages.map((lang,index) => {
         const styles={
@@ -75,7 +79,7 @@ export default function App(){
             <section className="keyboard">
                 {keyboardElements}
             </section>
-            <button className="new-game">New Game</button>
+            {isGameOver && <button className="new-game">New Game</button>}
         </main>
     )
 }
