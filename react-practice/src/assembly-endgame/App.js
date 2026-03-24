@@ -2,6 +2,7 @@ import { useState } from "react"
 import "./endgame.css"
 import { languages } from "./languages"
 import { clsx } from 'clsx';
+import { getFarewellText } from './utils'
 
 
 
@@ -15,6 +16,8 @@ export default function App(){
     console.log(wrongGuessCount)
     const isGameWon = currentWord.split("").every(letter => gussedLetters.includes(letter))
     const isGameLost = wrongGuessCount >= languages.length - 1
+    const lastGuessedLetter = gussedLetters[gussedLetters.length -1]
+    const isLastGuessIncorrect = lastGuessedLetter && !currentWord.includes(lastGuessedLetter)
     const isGameOver = isGameWon || isGameLost
     // static values
     const alphabets = "abcdefghijklmnopqrstuvwxyz"
@@ -61,12 +64,15 @@ export default function App(){
 
     const gameStatusClass = clsx("game-status",{
         won:isGameWon,
-        lost:isGameLost
+        lost:isGameLost,
+        farewell: !isGameOver && isLastGuessIncorrect
     })
 
     function renderGameStatus() {
-        if (!isGameOver) {
-            return null
+        if (!isGameOver && isLastGuessIncorrect) {
+            return (
+                <p className="farewell-message">{getFarewellText(languages[wrongGuessCount - 1].name)}</p>
+            )
         }
 
         if (isGameWon) {
@@ -76,7 +82,7 @@ export default function App(){
                     <p>Well done! 🎉</p>
                 </>
             )
-        } else {
+        } if(isGameLost) {
             return (
                 <>
                     <h2>Game over!</h2>
@@ -84,6 +90,7 @@ export default function App(){
                 </>
             )
         }
+        return null
     }
     return (
         <main>
