@@ -50,6 +50,7 @@ export default function App(){
         })
         return(<button
             className={className} 
+            disabled={isGameOver}
             key={letter} 
             onClick={()=> addGussedLetters(letter)}>
             {letter.toUpperCase()}
