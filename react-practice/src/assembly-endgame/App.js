@@ -2,14 +2,15 @@ import { useState } from "react"
 import "./endgame.css"
 import { languages } from "./languages"
 import { clsx } from 'clsx';
-import { getFarewellText } from './utils'
+import { getFarewellText,getRandomWord } from './utils'
+
 
 
 
 
 export default function App(){
     // state values
-    const [currentWord,setCurrentWord]= useState("react")
+    const [currentWord,setCurrentWord]= useState(()=> getRandomWord())
     const [gussedLetters,setGussedLetters] = useState([])
     // derived values
     const wrongGuessCount = gussedLetters.filter(letter => !currentWord.includes(letter)).length
