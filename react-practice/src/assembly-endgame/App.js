@@ -36,11 +36,13 @@ export default function App(){
     })
 
 
-    const letterElements=currentWord.split("").map((letter,index) => (
+    const letterElements=currentWord.split("").map((letter,index) => {
+        const shouldRevealeLetter = isGameLost || gussedLetters.includes(letter)
+        return(
         <span key={index}>
-            {gussedLetters.includes(letter) ? letter.toUpperCase() : ""}
-        </span>
-    ))
+            {shouldRevealeLetter ? letter.toUpperCase() : ""}
+        </span>)
+})
     const keyboardElements = alphabets.split("").map(letter => {
         const isGuessed = gussedLetters.includes(letter)
         const isCorrect = isGuessed && currentWord.includes(letter)
