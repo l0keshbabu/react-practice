@@ -35,13 +35,25 @@ export default function App(){
         )
     })
 
+const letterElements = currentWord.split("").map((letter, index) => {
+    const isGuessed = gussedLetters.includes(letter)
+    const shouldRevealLetter = isGameLost || isGuessed
 
-    const letterElements=currentWord.split("").map((letter,index) => {
-        const shouldRevealeLetter = isGameLost || gussedLetters.includes(letter)
-        return(
-        <span key={index}>
-            {shouldRevealeLetter ? letter.toUpperCase() : ""}
-        </span>)
+    const style = {
+        color: isGameLost
+            ? isGuessed
+                ? "white"   
+                : "red"     
+            : isGuessed
+                ? "white"
+                : "transparent"
+    }
+
+    return (
+        <span key={index} style={style}>
+            {shouldRevealLetter ? letter.toUpperCase() : ""}
+        </span>
+    )
 })
     const keyboardElements = alphabets.split("").map(letter => {
         const isGuessed = gussedLetters.includes(letter)
