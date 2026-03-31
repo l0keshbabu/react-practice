@@ -3,6 +3,7 @@ import "./endgame.css"
 import { languages } from "./languages"
 import { clsx } from 'clsx';
 import { getFarewellText,getRandomWord } from './utils'
+import Confetti from "react-confetti"
 
 
 
@@ -14,7 +15,7 @@ export default function App(){
     const [gussedLetters,setGussedLetters] = useState([])
     // derived values
     const wrongGuessCount = gussedLetters.filter(letter => !currentWord.includes(letter)).length
-    console.log(wrongGuessCount)
+    
     const isGameWon = currentWord.split("").every(letter => gussedLetters.includes(letter))
     const isGameLost = wrongGuessCount >= languages.length - 1
     const lastGuessedLetter = gussedLetters[gussedLetters.length -1]
@@ -115,6 +116,13 @@ const letterElements = currentWord.split("").map((letter, index) => {
     }
     return (
         <main>
+            {
+                isGameWon && 
+                    <Confetti
+                        recycle={false}
+                        numberOfPieces={1000}
+                    />
+            }
             <header>
                 <h1>Assembly: Endgame</h1>
                     <p>Guess the word within 8 attempts to keep the programming world safe from Assembly!</p>
